@@ -26,7 +26,8 @@ public class Player {
 	
 	private String state;
 	
-	private String image;
+	@Column (name = "image_url")
+	private String imageUrl;
 	
 	public Player() {
 		
@@ -38,6 +39,17 @@ public class Player {
 		this.firstName = firstName;
 	}
 	
+	public Player(int id, String firstName, String lastName, int handicap, String city, String state, String image) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.handicap = handicap;
+		this.city = city;
+		this.state = state;
+		this.imageUrl = image;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -52,6 +64,46 @@ public class Player {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getHandicap() {
+		return handicap;
+	}
+
+	public void setHandicap(int handicap) {
+		this.handicap = handicap;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getImage() {
+		return imageUrl;
+	}
+
+	public void setImage(String image) {
+		this.imageUrl = image;
 	}
 
 	@Override

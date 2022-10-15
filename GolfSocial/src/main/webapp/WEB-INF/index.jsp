@@ -18,12 +18,21 @@
 
 	<c:forEach var="player" items="${players}">
 		<li>${player.firstName}</li>
+		<li>${player.lastName}</li>
+		<li>${player.handicap}</li>
+		<li>${player.city}</li>
+		<li>${player.state}</li>
+		<li>${player.image}</li>
 
 
 
 
 
 	</c:forEach>
+	
+	<form action="createProfile" method="post"><button type="submit">Create Profile</button></form>
+ <form action="deleteProfile" method="post"><button type="submit">Delete Profile</button></form>
+ <form action="updateProfile" method="post"> <button type="submit">Update Profile</button></form>
 
 </body>
 </html>

@@ -32,7 +32,7 @@ class JPASocialTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		player1 = em.find(Player.class, 3);
+		player1 = em.find(Player.class, 1);
 	}
 
 	@AfterEach
@@ -44,7 +44,11 @@ class JPASocialTest {
 	@Test
 	void test_Player_mapping() {
 		assertNotNull(player1);
-		assertEquals("Matt", player1.getFirstName());
+		assertEquals("Ruben", player1.getFirstName());
+		assertEquals("Rocha", player1.getLastName());
+		assertEquals("11", player1.getHandicap());
+		assertEquals("Denver", player1.getCity());
+		assertEquals("Colorado", player1.getState());
 	}
 
 }
