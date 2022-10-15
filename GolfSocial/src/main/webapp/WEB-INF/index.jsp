@@ -29,8 +29,8 @@
 
 
 	</c:forEach>
-	
-	<form action="createProfile" method="post"><button type="submit">Create Profile</button></form>
+
+ <form action="create.do" method="post"><button type="submit">Create Profile</button></form>
  <form action="deleteProfile" method="post"><button type="submit">Delete Profile</button></form>
  <form action="updateProfile" method="post"> <button type="submit">Update Profile</button></form>
 

@@ -46,7 +46,7 @@ class JPASocialTest {
 		assertNotNull(player1);
 		assertEquals("Ruben", player1.getFirstName());
 		assertEquals("Rocha", player1.getLastName());
-		assertEquals("11", player1.getHandicap());
+		assertEquals(11, player1.getHandicap());
 		assertEquals("Denver", player1.getCity());
 		assertEquals("Colorado", player1.getState());
 	}
