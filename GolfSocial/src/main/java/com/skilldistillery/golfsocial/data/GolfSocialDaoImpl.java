@@ -26,26 +26,39 @@ public class GolfSocialDaoImpl implements GolfSocialDao {
 
 	@Override
 	public Player findById(int playerId) {
+		String jpql = "SELECT player from Player player WHERE player.id = :id";
 		
-		return em.find(Player.class, playerId);
+		return em.createQuery(jpql, Player.class).getSingleResult();
 	}
 
 	@Override
 	public Player createPlayer(Player player) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(player);
+		return player;
 	}
 
 	@Override
 	public Player updatePlayer(int playerId, Player player) {
-		// TODO Auto-generated method stub
-		return null;
+		player = em.find(Player.class, playerId);
+		if(player != null) {
+			player.setFirstName(player.getFirstName());
+			player.setLastName(player.getLastName());
+			player.setHandicap(player.getHandicap());
+			player.setCity(player.getCity());
+			player.setState(player.getState());
+			em.persist(player);
+		}
+		return player;
 	}
 
 	@Override
 	public boolean deletePlayer(int playerId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+        Player deletePlayer = em.find(Player.class, playerId); //find player we're deleting
+        if (deletePlayer != null) { //if player exists
+            em.remove(deletePlayer); //removes player from database
+        }
+        return em.contains(deletePlayer); //returns true if delete player is still in persistence mngr
+        //returns false if not
+    }
 
 }

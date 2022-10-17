@@ -17,12 +17,14 @@
 	<h3></h3>
 
 	<c:forEach var="player" items="${players}">
-		<li>${player.firstName}</li>
-		<li>${player.lastName}</li>
-		<li>${player.handicap}</li>
-		<li>${player.city}</li>
-		<li>${player.state}</li>
-		<li>${player.image}</li>
+		<li>ID:${player.id}</li>
+		<li>First Name: ${player.firstName}</li>
+		<li>Last Name: ${player.lastName}</li>
+		<li>Handicap: ${player.handicap}</li>
+		<li>City: ${player.city}</li>
+		<li>State: ${player.state}</li>
+		<li>Image: ${player.image}</li>
+		<hr>
 
 
 
@@ -30,9 +32,20 @@
 
 	</c:forEach>
 
- <form action="create.do" method="post"><button type="submit">Create Profile</button></form>
- <form action="deleteProfile" method="post"><button type="submit">Delete Profile</button></form>
- <form action="updateProfile" method="post"> <button type="submit">Update Profile</button></form>
+
+	<form action="create.do" method="GET">
+		<button type="submit">Create New Profile</button>
+	</form>
+
+	<form action="delete.do" method="POST">
+		<input name="playerId" value="${player.id }" type="text" /> <input
+			name="submit" value="Delete By Id" type="submit" />
+	</form>
+	
+	<form action="chooseProfileToUpdate.do" method="POST">
+		<input name="playerId" value="id" type="text" /> 
+		<input name="submit" value="Update By Id" type="submit" />
+	</form>
 
 </body>
 </html>
